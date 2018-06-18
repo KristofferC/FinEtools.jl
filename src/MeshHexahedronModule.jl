@@ -395,7 +395,7 @@ function H8spheren(radius::FFlt, nperradius::FInt)
     if (mod(nperradius, 2) != 0)
         nperradiu = nperradius+1;
     end
-    nL = ceil(FInt, nperradius/2); nW=nL; nH=nL;
+    nL = ceil(FInt, digits=nperradius/2); nW=nL; nH=nL;
 
     a=sqrt(2.0)/2.0;
     b=1.0/sqrt(3.0);

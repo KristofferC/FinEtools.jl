@@ -50,8 +50,8 @@ function THICK_plate_2dir_strong_MST10_conv()
             tnts = sum(nts)
             na, nb = 4 * tnts, 4 * tnts;
             
-            xs = collect(linspace(0.0, a, na+1))
-            ys = collect(linspace(0.0, b, nb+1))
+            xs = collect(range(0.0, stop=a, length=na+1))
+            ys = collect(range(0.0, stop=b, length=nb+1))
             fens,fes = T10layeredplatex(xs, ys, ts, nts)
             println("Mesh: na, nb, nts = $na, $nb, $nts")
             println("count(fens) = $(count(fens))")

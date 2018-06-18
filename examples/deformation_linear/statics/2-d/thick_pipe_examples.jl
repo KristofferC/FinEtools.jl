@@ -173,7 +173,7 @@ function thick_pipe_axi()
     fig = plt.figure() 
     ax = plt.axes()
     # Plot the analytical solution.
-    r = linspace(a,b,100);
+    r = range(a, stop=b, length=100);
     ax[:plot](r, radial_stress(r), linestyle="solid", marker=:o, label="Analytical")
     # Plot the computed  integration-point data
     ax[:plot](idat.r, idat.s, linestyle="none", marker=:o, label="FEA")
@@ -488,7 +488,7 @@ function thick_pipe_ps()
     fig = plt.figure() 
     ax = plt.axes()
     # Plot the analytical solution.
-    r = linspace(a,b,100);
+    r = range(a, stop=b, length=100);
     ax[:plot](r, radial_stress(r), linestyle="solid", marker=:o, label="Analytical")
     # Plot the computed  integration-point data
     ax[:plot](idat.r, idat.s, linestyle="none", marker=:o, label="FEA")
@@ -723,7 +723,7 @@ function thick_pipe_ps_T6()
     fig = plt.figure() 
     ax = plt.axes()
     # Plot the analytical solution.
-    r = linspace(a,b,100);
+    r = range(a, stop=b, length=100);
     ax[:plot](r, radial_stress(r), linestyle="solid", marker=:o, label="Analytical")
     # Plot the computed  integration-point data
     ax[:plot](idat.r, idat.s, linestyle="none", marker=:o, label="FEA")

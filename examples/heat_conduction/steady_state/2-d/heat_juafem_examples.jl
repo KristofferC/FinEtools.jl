@@ -1,7 +1,7 @@
 module heat_juafem_examples
 using FinEtools
 using FinEtools.MeshExportModule
-using Compat.Test
+using Test
 
 function heat_juafem_example()
     println("""Heat conduction example from JuAFEM.""")

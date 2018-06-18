@@ -79,18 +79,18 @@ function import_NASTRAN(filename; allocationchunk=chunk)
                 # $------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
                 # GRID*                  5               0-1.66618812195+1-3.85740337853+0
                 # *       1.546691269367+1               0
-                node[nnode, 1] = parse(Float64, fixupdecimal(temp[9:24]))
-                node[nnode, 2] = parse(Float64, fixupdecimal(temp[41:56]))
-                node[nnode, 3] = parse(Float64, fixupdecimal(temp[57:72]))
+                node[nnode, 1] = Meta.parse(Float64, fixupdecimal(temp[9:24]))
+                node[nnode, 2] = Meta.parse(Float64, fixupdecimal(temp[41:56]))
+                node[nnode, 3] = Meta.parse(Float64, fixupdecimal(temp[57:72]))
                 temp  = lines[current_line]
                 current_line = current_line + 1
-                node[nnode, 4] = parse(Float64, fixupdecimal(temp[9:24]))
+                node[nnode, 4] = Meta.parse(Float64, fixupdecimal(temp[9:24]))
             else  
                 # Template:
                 #   GRID,1,,-1.32846E-017,3.25378E-033,0.216954
                 A = split(replace(temp, "," => " "))
                 for  six = 1:4
-                    node[nnode, six] = parse(Float64, A[six+1])
+                    node[nnode, six] = Meta.parse(Float64, A[six+1])
                 end
             end
         end # GRID
@@ -102,8 +102,8 @@ function import_NASTRAN(filename; allocationchunk=chunk)
                 elem = vcat(elem, zeros(FInt, allocationchunk, maxnodel + 3))
             end
             A = split(replace(temp, "," => " "))
-            elem[nelem, 1] = parse(FInt, A[2])
-            elem[nelem, 2] = parse(FInt, A[3])
+            elem[nelem, 1] = Meta.parse(FInt, A[2])
+            elem[nelem, 2] = Meta.parse(FInt, A[3])
             if length(A) == 7  #  nodes per element  equals  4
                 nperel = 4
             else
@@ -118,7 +118,7 @@ function import_NASTRAN(filename; allocationchunk=chunk)
             end
             elem[nelem, 3] = nperel
             for  six = 1:nperel
-                elem[nelem, six+3] = parse(FInt, A[six+3])
+                elem[nelem, six+3] = Meta.parse(FInt, A[six+3])
             end
         end # CTETRA
 
@@ -205,7 +205,7 @@ function import_ABAQUS(filename; allocationchunk=chunk)
             end
             A = split(replace(temp, "," => " "))
             for  six = 1:length(A)
-                node[nnode, six] = parse(Float64, A[six])
+                node[nnode, six] = Meta.parse(Float64, A[six])
             end
         end
     end # while
@@ -247,7 +247,7 @@ function import_ABAQUS(filename; allocationchunk=chunk)
                 A = vcat(A[1:end-1], Acont)
             end
             for ixxxx = 1:length(A)
-                elemset[nelemset].elem[elemset[nelemset].nelem, ixxxx] = parse(FInt, A[ixxxx])
+                elemset[nelemset].elem[elemset[nelemset].nelem, ixxxx] = Meta.parse(FInt, A[ixxxx])
             end
         end
     end # while

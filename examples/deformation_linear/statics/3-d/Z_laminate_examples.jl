@@ -38,8 +38,8 @@ function Z_laminate_u_ss()
     # Generate mesh
     na = 10 # number of elements along the side of the plate
     nb = 30 # number of elements along the side of the plate
-    xs = collect(linspace(0.0, a, na+1))
-    ys = collect(linspace(0.0, b, nb+1))
+    xs = collect(range(0.0, stop=a, length=na+1))
+    ys = collect(range(0.0, stop=b, length=nb+1))
     ts = h/nLayers*ones(nLayers);# layer thicknesses
     nts= 3*ones(Int, nLayers);# number of elements per layer
     fens,fes = H8layeredplatex(xs, ys, ts, nts)

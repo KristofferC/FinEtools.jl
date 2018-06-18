@@ -50,9 +50,9 @@ function fiber_reinf_cant_iso()
     na = n # number of elements lengthwise
     nb = n # number of elements through the wwith
     nt = n # number of elements through the thickness
-    xs = collect(linspace(0.0, a, na+1))
-    ys = collect(linspace(0.0, b, nb+1))
-    ts = collect(linspace(0.0, t, nt+1))
+    xs = collect(range(0.0, stop=a, length=na+1))
+    ys = collect(range(0.0, stop=b, length=nb+1))
+    ts = collect(range(0.0, stop=t, length=nt+1))
     fens,fes = H8blockx(xs, ys, ts)
     fens,fes = H8toH20(fens,fes)
     bfes = meshboundary(fes)
@@ -156,9 +156,9 @@ function fiber_reinf_cant_iso_stresses()
         na = n # number of elements lengthwise
         nb = n # number of elements through the wwith
         nt = n # number of elements through the thickness
-        xs = collect(linspace(0.0, a, na+1))
-        ys = collect(linspace(0.0, b, nb+1))
-        ts = collect(linspace(0.0, t, nt+1))
+        xs = collect(range(0.0, stop=a, length=na+1))
+        ys = collect(range(0.0, stop=b, length=nb+1))
+        ts = collect(range(0.0, stop=t, length=nt+1))
         fens,fes = H8blockx(xs, ys, ts)
         # fens,fes = H8toH20(fens,fes)
         bfes = meshboundary(fes)
@@ -276,9 +276,9 @@ function fiber_reinf_cant_iso_stresses_MST10()
         na = n # number of elements lengthwise
         nb = n # number of elements through the wwith
         nt = n # number of elements through the thickness
-        xs = collect(linspace(0.0, a, na+1))
-        ys = collect(linspace(0.0, b, nb+1))
-        ts = collect(linspace(0.0, t, nt+1))
+        xs = collect(range(0.0, stop=a, length=na+1))
+        ys = collect(range(0.0, stop=b, length=nb+1))
+        ts = collect(range(0.0, stop=t, length=nt+1))
         fens,fes = T10blockx(xs, ys, ts)
         bfes = meshboundary(fes)
         # end cross-section surface  for the shear loading
@@ -402,9 +402,9 @@ function fiber_reinf_cant_iso_stresses_T10()
         na = n # number of elements lengthwise
         nb = n # number of elements through the wwith
         nt = n # number of elements through the thickness
-        xs = collect(linspace(0.0, a, na+1))
-        ys = collect(linspace(0.0, b, nb+1))
-        ts = collect(linspace(0.0, t, nt+1))
+        xs = collect(range(0.0, stop=a, length=na+1))
+        ys = collect(range(0.0, stop=b, length=nb+1))
+        ts = collect(range(0.0, stop=t, length=nt+1))
         fens,fes = T10blockx(xs, ys, ts)
         bfes = meshboundary(fes)
         # end cross-section surface  for the shear loading
@@ -536,9 +536,9 @@ function fiber_reinf_cant_yn_strong()
     na = 8*n # number of elements lengthwise
     nb = n # number of elements through the wwith
     nt = n # number of elements through the thickness
-    xs = collect(linspace(0.0, a, na+1))
-    ys = collect(linspace(0.0, b, nb+1))
-    ts = collect(linspace(0.0, t, nt+1))
+    xs = collect(range(0.0, stop=a, length=na+1))
+    ys = collect(range(0.0, stop=b, length=nb+1))
+    ts = collect(range(0.0, stop=t, length=nt+1))
     fens,fes = H8blockx(xs, ys, ts)
     fens,fes = H8toH20(fens,fes)
     bfes = meshboundary(fes)
@@ -659,9 +659,9 @@ function fiber_reinf_cant_yn_strong_no_algo()
     na = n # number of elements lengthwise
     nb = n # number of elements through the wwith
     nt = n # number of elements through the thickness
-    xs = collect(linspace(0.0, a, na+1))
-    ys = collect(linspace(0.0, b, nb+1))
-    ts = collect(linspace(0.0, t, nt+1))
+    xs = collect(range(0.0, stop=a, length=na+1))
+    ys = collect(range(0.0, stop=b, length=nb+1))
+    ts = collect(range(0.0, stop=t, length=nt+1))
     println("fens,fes = H8blockx(xs, ys, ts)")
     @time fens,fes = H8blockx(xs, ys, ts)
     println("fens,fes = H8toH20(fens,fes)")

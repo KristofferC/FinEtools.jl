@@ -80,9 +80,9 @@ function hughes_cantilever_stresses_MST10()
         nL = 3*n # number of elements lengthwise
         nc = 2*n # number of elements through the wwith
         nh = n # number of elements through the thickness
-        xs = collect(linspace(0.0, L, nL+1))
-        ys = collect(linspace(0.0, h, nh+1))
-        zs = collect(linspace(-c, +c, nc+1))
+        xs = collect(range(0.0, stop=L, length=nL+1))
+        ys = collect(range(0.0, stop=h, length=nh+1))
+        zs = collect(range(-c, stop=+c, length=nc+1))
         fens,fes = T10blockx(xs, ys, zs)
         bfes = meshboundary(fes)
         # end cross-section surface  for the shear loading
@@ -201,9 +201,9 @@ function hughes_cantilever_stresses_MST10_incompressible()
         nL = 3*n # number of elements lengthwise
         nc = 2*n # number of elements through the wwith
         nh = n # number of elements through the thickness
-        xs = collect(linspace(0.0, L, nL+1))
-        ys = collect(linspace(0.0, h, nh+1))
-        zs = collect(linspace(-c, +c, nc+1))
+        xs = collect(range(0.0, stop=L, length=nL+1))
+        ys = collect(range(0.0, stop=h, length=nh+1))
+        zs = collect(range(-c, stop=+c, length=nc+1))
         fens,fes = T10blockx(xs, ys, zs)
         bfes = meshboundary(fes)
         # end cross-section surface  for the shear loading
@@ -323,9 +323,9 @@ function hughes_cantilever_stresses_nodal_MST10()
         nL = 3*n # number of elements lengthwise
         nc = 2*n # number of elements through the wwith
         nh = n # number of elements through the thickness
-        xs = collect(linspace(0.0, L, nL+1))
-        ys = collect(linspace(0.0, h, nh+1))
-        zs = collect(linspace(-c, +c, nc+1))
+        xs = collect(range(0.0, stop=L, length=nL+1))
+        ys = collect(range(0.0, stop=h, length=nh+1))
+        zs = collect(range(-c, stop=+c, length=nc+1))
         fens,fes = T10blockx(xs, ys, zs)
         bfes = meshboundary(fes)
         # end cross-section surface  for the shear loading
@@ -440,9 +440,9 @@ function hughes_cantilever_stresses_nodal_T10()
         nL = 3*n # number of elements lengthwise
         nc = 2*n # number of elements through the wwith
         nh = n # number of elements through the thickness
-        xs = collect(linspace(0.0, L, nL+1))
-        ys = collect(linspace(0.0, h, nh+1))
-        zs = collect(linspace(-c, +c, nc+1))
+        xs = collect(range(0.0, stop=L, length=nL+1))
+        ys = collect(range(0.0, stop=h, length=nh+1))
+        zs = collect(range(-c, stop=+c, length=nc+1))
         fens,fes = T10blockx(xs, ys, zs)
         bfes = meshboundary(fes)
         # end cross-section surface  for the shear loading
@@ -455,7 +455,7 @@ function hughes_cantilever_stresses_nodal_T10()
         0.0, E, nu, CTE)
         
         # Material orientation matrix
-        csmat = [i==j? 1.0: 0.0 for i=1:3, j=1:3]
+        csmat = [i==j ? 1.0 : 0.0 for i=1:3, j=1:3]
         
         function updatecs!(csmatout::FFltMat, XYZ::FFltMat, tangents::FFltMat, fe_label::FInt)
             copy!(csmatout, csmat)
@@ -558,9 +558,9 @@ function hughes_cantilever_stresses_T10()
         nL = 3*n # number of elements lengthwise
         nc = 2*n # number of elements through the wwith
         nh = n # number of elements through the thickness
-        xs = collect(linspace(0.0, L, nL+1))
-        ys = collect(linspace(0.0, h, nh+1))
-        zs = collect(linspace(-c, +c, nc+1))
+        xs = collect(range(0.0, stop=L, length=nL+1))
+        ys = collect(range(0.0, stop=h, length=nh+1))
+        zs = collect(range(-c, stop=+c, length=nc+1))
         fens,fes = T10blockx(xs, ys, zs)
         bfes = meshboundary(fes)
         # end cross-section surface  for the shear loading
@@ -681,9 +681,9 @@ function hughes_cantilever_stresses_T10_incompressible()
         nL = 3*n # number of elements lengthwise
         nc = 2*n # number of elements through the wwith
         nh = n # number of elements through the thickness
-        xs = collect(linspace(0.0, L, nL+1))
-        ys = collect(linspace(0.0, h, nh+1))
-        zs = collect(linspace(-c, +c, nc+1))
+        xs = collect(range(0.0, stop=L, length=nL+1))
+        ys = collect(range(0.0, stop=h, length=nh+1))
+        zs = collect(range(-c, stop=+c, length=nc+1))
         fens,fes = T10blockx(xs, ys, zs)
         bfes = meshboundary(fes)
         # end cross-section surface  for the shear loading

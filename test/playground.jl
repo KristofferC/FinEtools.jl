@@ -1,6 +1,6 @@
 module mstraight_duct_H8_1
 using FinEtools
-using Compat.Test
+using Test
 function test()
     t0  =  time()
 
@@ -30,7 +30,7 @@ function test()
     nLx = selectnode(fens,box = [0.0 Lx  0.0 0.0 0.0 0.0], inflate = Lx/1.0e5)
 
     geom  =  NodalField(fens.xyz)
-    P  =  NodalField(zeros(Complex128,size(fens.xyz,1),1))
+    P  =  NodalField(zeros(ComplexF64,size(fens.xyz,1),1))
 
     numberdofs!(P)
 

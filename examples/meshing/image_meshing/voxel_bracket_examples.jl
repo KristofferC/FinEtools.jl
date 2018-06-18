@@ -68,7 +68,7 @@ function voxel_bracket_mesh_tet_remesh()
         checkvolumes(im)
         println("Mesh size: final = $(size(im.t,1))")
         V = volumes(im)
-        println("length(find(x -> x <= 0.0, V)) = $(length(find(x -> x <= 0.0, V)))")
+        println("length(find(x -> x <= 0.0, V)) = $(length(findall(x -> x <= 0.0, V)))")
         # open("im$(i)" * ".jls", "w") do file
         #     serialize(file, im)
         # end

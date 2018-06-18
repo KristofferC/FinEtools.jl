@@ -1,6 +1,6 @@
 module mocylpull14
 using FinEtools
-using Compat.Test
+using Test
 function test()
     E1=1.0;
     nu23=0.19;
